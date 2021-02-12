@@ -2,7 +2,7 @@ node{
   stage('SCM checkout'){
       git 'https://github.com/sravanin15/HelloworldMaven'
   }
-  stage('Comple-Package){
+  stage('Comple-Package'){
       sh 'mvn package'
   }
 }
