@@ -15,31 +15,31 @@ pipeline{
              stage('Validate')
         {
             steps{
-                bat 'mvn -f Factorial/pom.xml validate'
+                bat 'mvn -f helloWorld/pom.xml validate'
             }
         }
         stage('Compile')
         {
             steps{
-                bat 'mvn -f Factorial/pom.xml compile'
+                bat 'mvn -f  helloWorld/pom.xml compile'
             }
         }
         stage('Test')
         {
             steps{
-                bat 'mvn -f Factorial/pom.xml test'
+                bat 'mvn -f  helloWorld/pom.xml test'
             }
         }
         stage('Package')
         {
             steps{
-                bat 'mvn -f Factorial/pom.xml package'
+                bat 'mvn -f  helloWorld/pom.xml package'
             }
         }
         stage('Verify')
         {
             steps{
-                bat 'mvn -f Factorial/pom.xml verify'
+                bat 'mvn -f helloWorld/pom.xml verify'
             }
         }
         stage('Install')
