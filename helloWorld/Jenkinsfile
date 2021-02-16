@@ -1,25 +1,55 @@
 pipeline{
-  agent {
-    docker{
-      image 'maven:3-alpine'
-      args '-v/root/.m2:/root/.m2'
+    agent any
+   
+    tools { 
+        maven 'maven'
+        jdk 'jdk'
     }
-  }
-  stages{
-  stage('Build'){
-    steps{
-      sh 'mvn -B -DskipTests clean package'
-    }
-  }
-  stage('Test'){
-    steps{
-      sh 'mvn test'
-  }
-    post{
-      always{
-        juint 'target/surefire-reports/*.xml'
-      }
-    }
-  }
-  }
+        stages{
+            stage('Git-Checkout')
+            {
+                steps{
+                     git 'https://github.com/sravanin15/Factorial.git'
+                }
+            }
+             stage('Validate')
+        {
+            steps{
+                bat 'mvn -f Factorial/pom.xml validate'
+            }
+        }
+        stage('Compile')
+        {
+            steps{
+                bat 'mvn -f Factorial/pom.xml compile'
+            }
+        }
+        stage('Test')
+        {
+            steps{
+                bat 'mvn -f Factorial/pom.xml test'
+            }
+        }
+        stage('Package')
+        {
+            steps{
+                bat 'mvn -f Factorial/pom.xml package'
+            }
+        }
+        stage('Verify')
+        {
+            steps{
+                bat 'mvn -f Factorial/pom.xml verify'
+            }
+        }
+        stage('Install')
+        {
+            steps{
+                bat 'mvn -f Factorial/pom.xml install'
+            }
+        }
+            
+            
+           
+        }
 }
