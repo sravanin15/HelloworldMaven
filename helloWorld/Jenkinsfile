@@ -24,6 +24,17 @@ pipeline{
                 bat 'mvn -f  helloWorld/pom.xml compile'
             }
         }
+        stage('sonar analysis'){
+            steps{
+                withSonarQubeEnv('sonarserver'){
+                    withMaven(maven:'maven'){
+                        bat 'mvn sonar:sonar'
+                    }
+                }
+            }
+
+        }
+
         stage('Test')
         {
             steps{
