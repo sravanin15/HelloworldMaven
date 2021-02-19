@@ -56,7 +56,7 @@ pipeline{
         stage('Install')
         {
             steps{
-                bat 'mvn -f  helloWorld/pom.xml install'
+                bat 'mvn -f  helloWorld/pom.xml install '
             }
         }
             
