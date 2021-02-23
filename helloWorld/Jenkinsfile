@@ -28,7 +28,7 @@ pipeline{
             steps{
                 withSonarQubeEnv('sonarserver'){
                     withMaven(maven:'maven'){
-                        bat 'mvn -f  helloWorld/pom.xml sonar:sonar'
+                        bat 'mvn -f   sonar:sonar'
                     }
                 }
             }
