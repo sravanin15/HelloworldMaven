@@ -59,12 +59,7 @@ pipeline{
                 bat 'mvn -f  helloWorld/pom.xml install '
             }
         }
-         stage('Artifactory')
-    {
-      steps{
-        archiveArtifacts artifacts:'helloWorld/target/*.jar',followSymlinks:false
-      }
-    }
+        
     stage('Deploy-To-Artifactory')
     {
       steps{
