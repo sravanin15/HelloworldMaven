@@ -15,7 +15,7 @@ pipeline{
              stage('Validate')
         {
             steps{
-                bat 'mvn -f helloWorld/pom.xml validate'
+                bat 'mvn -f helloWorld/pom.xml clean validate'
             }
         }
         stage('Compile')
