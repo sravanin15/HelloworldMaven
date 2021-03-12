@@ -32,7 +32,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com..java.simpleproject.App</mainClass>
+							<mainClass>com.demo.helloWorld.App</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
