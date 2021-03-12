@@ -5,7 +5,6 @@ RUN mvn clean package
 
  WORKDIR /Hello
 # copy the packaged jar file into our docker image
-COPY target/Calculator-0.0.1-SNAPSHOT.jar ./calculator/Calculator.jar
-COPY --from=maven target/Helloworld-0.0.1.jar ./adevguide/SimpleJavaProject.jar
+COPY --from=maven target/helloworld-0.0.1-SNAPSHOT.jar ./Hello/helloworld.jar
 # set the startup command to execute the jar
-CMD ["java", "-jar", "./calculator/Calculator.jar"]
+CMD ["java", "-jar", "./Hello/helloworld.jar"]
